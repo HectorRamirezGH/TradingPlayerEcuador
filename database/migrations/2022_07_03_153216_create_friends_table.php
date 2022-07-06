@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateFriendsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('friends', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->index();
-            $table->string('name');
-            $table->boolean('personal_team');
+
+            $table->foreignId('user')->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('friend')->references('id')->on('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('friends');
     }
-};
+}

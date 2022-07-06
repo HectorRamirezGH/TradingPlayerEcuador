@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateFavouritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
+        Schema::create('favourites', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->index();
-            $table->string('name');
-            $table->boolean('personal_team');
+
+            $table->foreignId('message')->references('id')->on('messages')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('favourites');
     }
-};
+}
