@@ -1127,8 +1127,11 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
-.-mt-px {
+.mt-px {
   margin-top: -1px;
+}
+.mt-20 {
+  margin-top: 5rem;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
@@ -1461,6 +1464,9 @@ background: rgb(209 213 219 / var(--tw-border-opacity));
 }
 .border-transparent {
   border-color: transparent;
+}
+.bg-transparent {
+  background-color: transparent;
 }
 .border-indigo-400 {
   --tw-border-opacity: 1;
