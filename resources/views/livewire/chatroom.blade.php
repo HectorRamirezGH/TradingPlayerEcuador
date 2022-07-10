@@ -3,8 +3,7 @@
         <div class="flex-col">
             <div class="bg-white px-4 py-3 sm:px-6">
                 <input type="search" class="rounded-md border-gray-200 shadow-md mt-1 block w-full" name="search" placeholder="Search" required />
-            </div>
-                
+            </div>                
             <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
                 <h2 class="my-2 mb-2 ml-2 text-lg text-gray-600">Chats</h2>
                 <ul class="bg-white mb-2 py-3 border-t rounded-lg border-gray-200 shadow-md overflow-y-auto sm:px-6 h-80">            

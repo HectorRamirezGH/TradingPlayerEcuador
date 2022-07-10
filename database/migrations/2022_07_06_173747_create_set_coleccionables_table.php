@@ -18,8 +18,13 @@ class CreateSetColeccionablesTable extends Migration
             $table->string('name');
             $table->unsignedDouble('prec_venta', 8, 2)->nullable();
             $table->unsignedDouble('prec_compra', 8, 2)->nullable();
-            $table->boolean('set_intercambio')->nullable();
+            $table->boolean('intercambio')->nullable();
             $table->unsignedInteger('cant');
+            $table->foreignId('set_intercambio')->nullable()
+            ->references('id')
+            ->on('set_coleccionables')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->foreignId('coleccion')
             ->references('id')
             ->on('colecciones')

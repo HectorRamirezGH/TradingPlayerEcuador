@@ -11,6 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
+                @auth
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -21,6 +22,7 @@
                         {{ __('Welcome') }}
                     </x-jet-nav-link>
                 </div>
+                @endauth
             </div>
 
             @auth
@@ -76,9 +78,13 @@
                             </x-jet-dropdown>
                         </div>
                     @else
-                        <x-jet-dropdown-link href="{{ route('teams.create') }}">
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <div class="hidden h-16 space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('teams.create') }}">
                             {{ __('Create New Team') }}
-                        </x-jet-dropdown-link>
+                        </x-jet-nav-link>
+                        </div>
+                    </div>
                     @endif 
                 @endif
 
@@ -113,6 +119,10 @@
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('profile.collections') }}">
+                                {{ __('Colecctions') }}
+                            </x-jet-dropdown-link>
+
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
@@ -145,6 +155,20 @@
                 </button>
             </div>
             @else
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class="hidden h-16 space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('login') }}">
+                        {{ __('login') }}
+                    </x-jet-nav-link>
+                </div>
+                @if (Route::has('register'))
+                <div class="hidden h-16 space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('register') }}">
+                        {{ __('register') }}
+                    </x-jet-nav-link>
+                </div>
+                @endif
+            </div>
             @endauth
         </div>
     </div>

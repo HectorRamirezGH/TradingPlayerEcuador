@@ -1070,7 +1070,7 @@ select {
 .mt-6 {
   margin-top: 1.5rem;
 }
-.-mr-1 {
+.mr-1 {
   margin-right: -0.25rem;
 }
 .mt-3 {
@@ -1532,6 +1532,15 @@ background: rgb(209 213 219 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-emerald-500 {
+  background-color: rgb(16 185 129);
+}
+.bg-blue-700 {
+  background-color: rgb(234 179 8);
+}
+.bg-rose-700 {
+  background-color: rgb(147 51 234);
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1927,6 +1936,18 @@ background: rgb(209 213 219 / var(--tw-border-opacity));
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+.hover\:bg-emerald-700:hover {
+    --tw-text-opacity: 1;
+    background-color: rgb(4 120 87/ var(--tw-text-opacity));
+  }
+.hover\:bg-blue-800:hover {
+  --tw-text-opacity: 1;
+  background-color: rgb(30 64 175/ var(--tw-text-opacity));
+}
+.hover\:bg-rose-800:hover {
+  --tw-text-opacity: 1;
+  background-color: rgb(159 18 57/ var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
   z-index: 10;

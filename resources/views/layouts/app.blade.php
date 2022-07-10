@@ -27,7 +27,7 @@
             </div>
             
             <!-- Page Content -->
-            <main>
+            <main class="py-12">
                 {{ $slot }}
             </main>
         </div>
