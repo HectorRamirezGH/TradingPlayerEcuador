@@ -16,7 +16,7 @@
 
                     <x-slot name="content">
                         <div class="text-sm text-gray-600">
-                            <div class="shadow border-b border-gray-200 sm:rounded-lg">
+                            <div class="flex flex-row grid place-items-stretch shadow border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full">
                                 <thead class="border-b bg-gray-800">
                                     <tr>
