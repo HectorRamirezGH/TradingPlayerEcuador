@@ -29,4 +29,9 @@ class Tabla extends Component
 
         return view('livewire.tabla', compact('users','coleccionables','caracteristicas','caracteristicascoleccionable', 'setcoleccionables', 'colecciones'));
     }
+
+    public function showUserPublicProfile($user_id)
+    {
+        return redirect()->route('user', ['user_id'=>$user_id]);
+    }
 }

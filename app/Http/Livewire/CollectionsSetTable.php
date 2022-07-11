@@ -141,6 +141,6 @@ class CollectionsSetTable extends Component
     {
         $this->edit_set->delete();
 
-        $this->deleteCollectionModal = false;
+        $this->deleteSetModal = false;
     }
 }

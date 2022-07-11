@@ -27,7 +27,7 @@
             </div>
             
             <!-- Page Content -->
-            <main class="py-12">
+            <main class="py-12" class="bg-green-400">
                 {{ $slot }}
             </main>
         </div>

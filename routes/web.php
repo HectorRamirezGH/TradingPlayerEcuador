@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Livewire\Collectable as LivewireCollectable;
+use App\Http\Livewire\UserPublicProfile as LivewireUserPublicProfile;
 use Illuminate\Support\Facades\Route;
-use Livewire\Component\Collectable;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,9 @@ Route::get('/welcome', function () {
 
 Route::get('/collectable/{id_col}', LivewireCollectable::class)
 ->name('collectable');
+
+Route::get('/user/{user_id}', LivewireUserPublicProfile::class)
+->name('user');
 
 Route::middleware([
     'auth:sanctum',

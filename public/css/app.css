@@ -43,6 +43,7 @@ html {
 body {
   margin: 0; /* 1 */
   line-height: inherit; /* 2 */
+  background-image: url('http://127.0.0.1/storage/collectable-photos/WhatsApp Image 2022-07-10 at 11.03.11 PM.jpeg');
 }
 
 /*
@@ -1524,6 +1525,9 @@ background: rgb(209 213 219 / var(--tw-border-opacity));
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+.bg-green-400 {
+  background-color: rgb(74 222 128);
 }
 .bg-indigo-600 {
   --tw-bg-opacity: 1;

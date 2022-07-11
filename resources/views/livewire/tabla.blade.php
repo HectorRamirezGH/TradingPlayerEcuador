@@ -65,7 +65,7 @@
                                 @foreach($users as $user)
                                     @if($setcoleccionable->coleccion == $coleccion->id && $coleccion->user == $user->id)
                                     <div>
-                                        <img wire:click="" class="h-10 w-10 shadow-md rounded-full object-cover" src="{{ $user->profile_photo_url }}" />
+                                        <img wire:click="showUserPublicProfile({{$user->id}})" class="h-10 w-10 shadow-md rounded-full object-cover" src="{{ $user->profile_photo_url }}" />
                                     </div>
                                     <div>
                                         <strong style="text-transform:capitalize">{{ $user->name }}</strong>
