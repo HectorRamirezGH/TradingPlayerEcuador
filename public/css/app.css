@@ -1382,6 +1382,9 @@ background: rgb(209 213 219 / var(--tw-border-opacity));
 .justify-between {
   justify-content: space-between;
 }
+.justify-self-start {
+  justify-self: start;
+}
 .gap-6 {
   gap: 1.5rem;
 }

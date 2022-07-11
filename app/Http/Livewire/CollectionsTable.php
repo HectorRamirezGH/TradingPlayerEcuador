@@ -21,7 +21,7 @@ class CollectionsTable extends Component
 
     public function render()
     {
-        $userCollections = Colecciones::all();
+        $userCollections = Colecciones::where('user','=',Auth::user()->getAuthIdentifier())->get();
 
         return view('livewire.collections-table', compact('userCollections'));
     }

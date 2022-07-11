@@ -8,7 +8,6 @@ use App\Models\Coleccionable;
 use App\Models\Colecciones;
 use App\Models\SetColeccionable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
@@ -37,7 +36,7 @@ class CollectionsSetTable extends Component
 
     public function render()
     {
-        $colecciones = Colecciones::all();
+        $colecciones = Colecciones::where('user',Auth::user()->getAuthIdentifier())->get();
 
         $coleccionables = Coleccionable::all();
 
