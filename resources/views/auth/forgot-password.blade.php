@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img class="h-20 w-3\/4  object-cover" src="http://127.0.0.1:8000/storage/collectable-photos/TradingPlayerEcuadorIcon.png" alt="none"/>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">

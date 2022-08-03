@@ -10,6 +10,7 @@ use App\Models\SetColeccionable;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class UserPublicProfile extends Component
 {
@@ -51,5 +52,13 @@ class UserPublicProfile extends Component
     public function mount($user_id)
     {
         $this->user_id = $user_id;
+    }
+
+    public function startChat($user_id)
+    {    
+        DB::table('friends')->updateOrInsert(['user' => Auth::user()->id, 'friend' => $user_id]);
+        DB::table('friends')->updateOrInsert(['user' => $user_id, 'friend' => Auth::user()->id]);
+        
+        return redirect()->route('chatroom');
     }
 }

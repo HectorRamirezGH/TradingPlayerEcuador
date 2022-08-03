@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Friend;
 use App\Models\User;
 use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
@@ -21,6 +20,8 @@ class Chatroom extends Component
 
     protected $rules = ['message' => 'required'];
 
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     public function startChat($id)
     {
         $this->noChat = true;
@@ -30,7 +31,7 @@ class Chatroom extends Component
         $this->current_user = Auth::user()->id;
 
         // change to chat read
-        $notifications = Message::where('thread', $this->current_user.'-'.$this->receiver)->orWhere('thread', $this->receiver.'-'.$this->current_user)->update(['is_read' => '1']);
+        $this->notifications = Message::where('thread', $this->current_user.'-'.$this->receiver)->orWhere('thread', $this->receiver.'-'.$this->current_user)->update(['is_read' => '1']);
     }
 
     public function sendChat ()
@@ -62,6 +63,14 @@ class Chatroom extends Component
     public function clearForm ()
     {
         $this->message = "";
+    }
+
+    public function deleteChat()
+    {
+        $thread_value1 = $this->current_user . '-' .$this->receiver;
+        $thread_value2 = $this->receiver . '-' .$this->current_user;
+
+        Message::whereIn('thread', [$thread_value1, $thread_value2])->delete();
     }
 
     public function render()

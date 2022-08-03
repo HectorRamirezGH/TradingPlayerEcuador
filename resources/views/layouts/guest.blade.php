@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="icon" href="http://127.0.0.1:8000/storage/collectable-photos/FlameIcon.png">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -19,7 +20,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans text-gray-900 antialiased fade-in-div">
             {{ $slot }}
         </div>
     </body>

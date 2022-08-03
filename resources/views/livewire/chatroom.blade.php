@@ -1,14 +1,11 @@
 <div wire:poll>  
     <div class="flex">
-        <div class="flex-col">
-            <div class="bg-white px-4 py-3 sm:px-6">
-                <input type="search" class="rounded-md border-gray-200 shadow-md mt-1 block w-full" name="search" placeholder="Search" required />
-            </div>                
+        <div class="flex-col">          
             <div class="bg-white px-4 py-3 border-t border-gray-200 sm:px-6">
                 <h2 class="my-2 mb-2 ml-2 text-lg text-gray-600">Chats</h2>
-                <ul class="bg-white mb-2 py-3 border-t rounded-lg border-gray-200 shadow-md overflow-y-auto sm:px-6 h-80">            
+                <ul class="bg-gradient-to-bl from-white via-indigo-200 to-white mb-2 py-3 mt-4 border-t rounded-lg border-gray-200 shadow-md overflow-y-auto sm:px-6 h-96">            
                 @forelse ($users as $item)
-                    <li class="py-2 hover:bg-gray-100 rounded-lg px-2" type="button" wire:click="startChat({{ $item->id }})">
+                    <li class="py-2 my-2 border border-gray-400 rounded-lg px-2" type="button" wire:click="startChat({{ $item->id }})">
                         @php
                         // get notifcations/un read messages
                         $notifications = App\Models\Message::where('is_read', '0')->where('sender_id', $item->id)->get();
@@ -20,7 +17,7 @@
                             <div class="flex flex-col px-4">
                                 <strong style="text-transform:capitalize">{{ $item->name }}
                                     @if ($notifications->count() > 0)
-                                    <small><span class="badge badge-danger text-light float-right mt-2">{{ $notifications->count() }}</span></small>
+                                    <small><span class="items-center text-red-500 mt-2">{{ $notifications->count() }}</span></small>
                                     @endif
                                 </strong>
                                 @if (Cache::has('is_online' . $item->id))
@@ -60,8 +57,8 @@
                         </div>
                     </div>
                     
-                    <div class="justify-self-end items-center ml-2">
-                        <x-jet-button class="bg-purple-500 hover:bg-purple-600 text-center tooltip-left" wire:click="" wire:loading.attr="disabled">
+                    <div class="justify-self-start items-center">
+                        <x-jet-button class="bg-purple-500 hover:bg-purple-600 text-center tooltip-left" wire:click="deleteChat()" wire:loading.attr="disabled">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
@@ -73,7 +70,7 @@
                     @if ($messages->count())
                         @foreach ($messages as $chat)
                         @if ($chat->sender_id == Auth::user()->id && $chat->receiver_id == $receiver)
-                        <div class="flex bg-white justify-end px-4 py-3 sm:px-6">
+                        <div class="flex justify-end px-4 py-3 sm:px-6">
                             <div class="flex shadow-lg border border-gray-100 rounded-lg p-2 sm:px-6">
                                 <p class="max-w-xs normal overflow-hidden text-md">
                                     {{ $chat->message }}
@@ -84,7 +81,7 @@
                             </div>
                         </div>
                         @elseif($chat->sender_id == $receiver && $chat->receiver_id == Auth::user()->id)
-                        <div class="flex bg-white px-4 py-3 sm:px-6">
+                        <div class="flex px-4 py-3 sm:px-6">
                             <div class="flex shadow-lg border border-gray-100 rounded-lg p-2 sm:px-6">
                                 <p class="max-w-xs normal overflow-hidden text-md">
                                     {{ $chat->message }}
@@ -97,7 +94,7 @@
                         @endif
                         @endforeach
                     @else
-                        <div class="flex bg-white px-4 py-3 justify-center sm:px-6">
+                        <div class="flex px-4 py-3 justify-center sm:px-6">
                             <p class="pt-8 text-xl">{{ __('Start the chat with your friend!') }}</p>
                         </div>
                     @endif               
