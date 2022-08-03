@@ -38,4 +38,14 @@ class Collectable extends Component
 
         $this->col_carac = CaracteristicasColeccionable::where('coleccionable',$this->id_col)->get();
     }
+
+    public function showUserPublicProfile($user_id)
+    {
+        return redirect()->route('user', ['user_id'=>$user_id]);
+    }
+
+    public function startChat($user_id)
+    {
+        return redirect()->route('chatroom');
+    }
 }

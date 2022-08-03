@@ -38,6 +38,7 @@ class Searchbar extends Component
             if ($validator->fails()) {
                 $this->search = 'Write a valid name';
             }else{
+                $this->search = null;
                 return redirect()->route('collectable', ['id_col'=>$id_col]);
             }
         }

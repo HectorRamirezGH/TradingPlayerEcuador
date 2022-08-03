@@ -1,15 +1,15 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Colecctions') }}
+        <p class="text-gray-200">{{ __('Colecctions') }}</p>
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Here you can look on your current collections!') }}
+        <p class="text-gray-400">{{ __('Here you can look on your current collections!') }}</p>
     </x-slot>
 
     <x-slot name="content">
         <div class="text-sm text-gray-600">
-            <div class="overflow-hidden shadow border-b border-gray-200 sm:rounded-lg">
+            <div class="overflow-hidden shadow">
                 <table class="min-w-full">
                 <thead class="border-b bg-gray-800">
                     <tr>
@@ -27,9 +27,9 @@
                     </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-gradient-to-bl from-white via-indigo-200 to-white">
                     @foreach ($userCollections as $collection)
-                    <tr class="bg-white transition duration-300 ease-in-out hover:bg-gray-100">
+                    <tr>
                     <td align="center" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     {{ $collection->name }}
                     </td>
@@ -37,14 +37,14 @@
                     {{ $collection->desc }}
                     </td>
                     <td align="center" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <x-jet-button class="bg-blue-700 hover:bg-blue-800" wire:click="editCollectionModal({{ $collection->id }})" wire:loading.attr="disabled">
+                    <x-jet-button class="bg-yellow-500 hover:bg-yellow-600" wire:click="editCollectionModal({{ $collection->id }})" wire:loading.attr="disabled">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                         </svg>
                     </x-jet-button>
                     </td>
                     <td align="center" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <x-jet-button class="bg-rose-700 hover:bg-rose-800" wire:click="deleteCollectionModal({{ $collection->id }})" wire:loading.attr="disabled">
+                    <x-jet-button class="bg-purple-500 hover:bg-purple-600" wire:click="deleteCollectionModal({{ $collection->id }})" wire:loading.attr="disabled">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>

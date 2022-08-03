@@ -1,25 +1,25 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gradient-to-r from-white via-gray-400 to-white shadow-xl fade-in-div">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">           
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                    <a href="{{ route('welcome') }}" >
+                        <img class="h-8 w-3\/4  object-cover" src="http://127.0.0.1:8000/storage/collectable-photos/TradingPlayerEcuadorIcon.png" alt="none"/>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                @auth
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                         {{ __('Welcome') }}
+                    </x-jet-nav-link>
+                </div>
+                @auth
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('chatroom') }}" :active="request()->routeIs('chatroom')">
+                        {{ __('Chatroom') }}
                     </x-jet-nav-link>
                 </div>
                 @endauth
@@ -34,7 +34,7 @@
                             <x-jet-dropdown align="right" width="60">
                                 <x-slot name="trigger">
                                     <span class="inline-flex rounded-md">
-                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
+                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-transparent hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
                                             
                                             {{ Auth::user()->currentTeam->name }}
 
@@ -179,8 +179,8 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
     @auth
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-jet-responsive-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
+                {{ __('Welcome') }}
             </x-jet-responsive-nav-link>
         </div>
 

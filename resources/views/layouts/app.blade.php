@@ -21,13 +21,13 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-700">
             <div class="fixed w-full">
             @livewire('navigation-menu')
             </div>
             
             <!-- Page Content -->
-            <main class="py-12" class="bg-green-400">
+            <main class="py-12">
                 {{ $slot }}
             </main>
         </div>

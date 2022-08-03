@@ -74,14 +74,16 @@ class Chatroom extends Component
         $current = User::find($receiver);
 
         // get all users
-        $users = User::where('id', '!=', $user)->get();
-
-        // check if current user is friend
-        $friend = Friend::where('friend', $current)->first();
+        $users = User::whereIn('id', function ($query) {
+            $query->select('friend')
+            ->from('friends')
+            ->where('user', Auth::user()->id);
+        })
+        ->get();
 
         // get all chats
         $messages = Message::where('thread', $user.'-'.$receiver)->orWhere('thread', $receiver.'-'.$user)->get();        
 
-        return view('livewire.chatroom', compact('messages', 'users', 'current', 'friend'));
+        return view('livewire.chatroom', compact('messages', 'users', 'current'));
     }
 }

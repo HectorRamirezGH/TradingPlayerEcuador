@@ -8,6 +8,7 @@ use App\Models\Coleccionable;
 use App\Models\Colecciones;
 use App\Models\SetColeccionable;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class UserPublicProfile extends Component
@@ -23,11 +24,17 @@ class UserPublicProfile extends Component
 
         $user = User::findOrFail($this->user_id);
 
-        $setcoleccionables = SetColeccionable::all();
+        $setcoleccionables = SetColeccionable::
+        whereIn('coleccion', Colecciones::where('user','=',$this->user_id)->get())
+        ->where('visible',0)
+        ->get();
 
         $carac_name = Caracteristica::all();
 
-        $coleccionables = Coleccionable::all();
+        $coleccionables = DB::table('coleccionables')
+        ->join('set_coleccionables', 'coleccionables.id', '=', 'set_coleccionables.coleccionable')
+        ->select('coleccionables.*')
+        ->get();
 
         return view('livewire.user-public-profile', compact('user','coleccionables','userCollections', 'setcoleccionables', 'carac_name'));
     }

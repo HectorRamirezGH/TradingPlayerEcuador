@@ -34,6 +34,8 @@ class CollectionsSetTable extends Component
         'tipo_set',
     ];
 
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     public function render()
     {
         $colecciones = Colecciones::where('user',Auth::user()->getAuthIdentifier())->get();

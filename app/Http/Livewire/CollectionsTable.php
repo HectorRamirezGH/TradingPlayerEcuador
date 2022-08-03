@@ -60,6 +60,8 @@ class CollectionsTable extends Component
         $coleccion->user = Auth::user()->getAuthIdentifier();
 
         $coleccion->save();
+
+        $this->emit('refreshComponent');
         $this->emit('saved');
     }
 
@@ -76,6 +78,8 @@ class CollectionsTable extends Component
     {
         $this->edit_coleccion->delete();
 
-        $this->deleteCollectionModal = false;
+        $this->deleteCollectionModal = false;     
+        
+        $this->emit('refreshComponent');
     }
 }

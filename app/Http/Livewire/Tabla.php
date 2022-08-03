@@ -13,6 +13,11 @@ use Livewire\Component;
 
 class Tabla extends Component
 {
+    public $col;
+    public $col_carac;
+
+    public $showCollectionModal;
+
     public function render()
     {
         $caracteristicas = Caracteristica::all();
@@ -30,8 +35,22 @@ class Tabla extends Component
         return view('livewire.tabla', compact('users','coleccionables','caracteristicas','caracteristicascoleccionable', 'setcoleccionables', 'colecciones'));
     }
 
+    public function showCollectionModal($id_col)
+    {
+        $this->col = Coleccionable::findOrFail($id_col);
+
+        $this->col_carac = CaracteristicasColeccionable::where('coleccionable',$this->col->id)->get();
+
+        $this->showCollectionModal = true;
+    }
+
     public function showUserPublicProfile($user_id)
     {
         return redirect()->route('user', ['user_id'=>$user_id]);
+    }
+
+    public function startChat($user_id)
+    {
+        return redirect()->route('chatroom');
     }
 }

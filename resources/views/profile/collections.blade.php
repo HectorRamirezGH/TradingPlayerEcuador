@@ -8,15 +8,13 @@
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
-            <livewire:collections-table></livewire:collections-table>
+            <livewire:collections-table/>
             
             <x-jet-section-border />
          
             <div class="mt-10 sm:mt-0">
-                <livewire:collections-set-table></livewire:collections-set-table>
+                <livewire:collections-set-table/>
             </div>
-
-            <x-jet-section-border />
         </div>
     </div>
 </x-app-layout>

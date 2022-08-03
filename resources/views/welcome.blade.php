@@ -7,16 +7,14 @@
 
     <div class="py-12">
         <div class="max-w-xl mt-10 mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg fade-in-div">
                 <livewire:searchbar></livewire:searchbar>
             </div>
         </div>
     </div>
 
-    <x-jet-section-border />
-
     <div class="max-w-7xl mt-10 mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg fade-in-div">
             <livewire:tabla></livewire:tabla>
         </div>
     </div>
