@@ -15,14 +15,15 @@
                     <x-jet-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                         {{ __('Welcome') }}
                     </x-jet-nav-link>
-                </div>
                 @auth
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('chatroom') }}" :active="request()->routeIs('chatroom')">
                         {{ __('Chatroom') }}
                     </x-jet-nav-link>
-                </div>
                 @endauth
+                    <x-jet-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
+                        {{ __('Library') }}
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             @auth
@@ -120,7 +121,7 @@
                             </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href="{{ route('profile.collections') }}">
-                                {{ __('Colecctions') }}
+                                {{ __('Collections') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

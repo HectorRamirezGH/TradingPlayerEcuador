@@ -21,9 +21,9 @@
                                     @endif
                                 </strong>
                                 @if (Cache::has('is_online' . $item->id))
-                                <div class="small"><span class="fa fa-circle chat-online"></span> Online</div>
+                                <div class="small"><span class="fa fa-circle chat-online"></span>{{ __('Online') }}</div>
                                 @else
-                                <div class="small">Last seen: {{ \Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</div>
+                                <div class="small">{{ __('Last Seen:') }} {{ \Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</div>
                                 @endif
                             </div>
                         </div>
@@ -49,10 +49,10 @@
                             <span class="badge badge-danger text-light float-right mt-2"><strong>{{ $current->name }}</strong></span>
                             @if (Cache::has('is_online' . $current->id))
                             <div class="text-green-500"> 
-                            <small>Online</small></div>
+                            <small>{{ __('Online') }}</small></div>
                             @else
                             <div class="text-red-500">
-                                <small>Last seen: {{ \Carbon\Carbon::parse($current->last_seen)->diffForHumans() }} </small></div>
+                                <small>{{ __('Last Seen:') }} {{ \Carbon\Carbon::parse($current->last_seen)->diffForHumans() }} </small></div>
                             @endif
                         </div>
                     </div>

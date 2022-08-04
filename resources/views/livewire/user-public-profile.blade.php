@@ -1,10 +1,10 @@
-<div class="py-12">
+<div class="py-12 fade-in-div">
     <div class="max-w-7xl mt-10 mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="bg-white col-span-6 sm:col-span-4 px-4 py-3 h-32 sm:px-6">
                 <x-jet-action-section>
                     <x-slot name="title">
-                        {{ __('Colecctions') }}
+                        {{ __('Collections') }}
                     </x-slot>
 
                     <x-slot name="description">
@@ -13,12 +13,11 @@
                             <div class="flex flex-row grid grid-cols-2 place-items-center gap-4 mt-6">
                                 <img class="h-20 w-20 rounded-full object-cover" src="{{ $user->profile_photo_url }}" />
 
-                                <button class="tooltip" wire:click="startChat({{$user->id}})">
+                                <button wire:click="startChat({{$user->id}})">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
                                     <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
                                     </svg>
-                                    <span class="tooltiptext">Chatea conmigo</span>
                                 </button>
                             </div>
                         </div>
@@ -86,12 +85,11 @@
                                             @if($setcoleccionable->coleccionable == $coleccionable->id)
                                             <div class="flex flex-col justify-self-start">
                                                 <div>
-                                                    <button class="tooltip-right" wire:click="showCollectionModal({{ $coleccionable->id }})">
+                                                    <button wire:click="showCollectionModal({{ $coleccionable->id }})">
                                                     <img class="h-10 w-10 shadow-md rounded-full object-cover" src="http://127.0.0.1:8000/storage/{{ $coleccionable->coleccionable_photo_path }}" />
                                                     <span class="tooltiptext-right">Mas Info</span>        
                                                     </button>
                                                 </div>
-                                                <strong style="text-transform:capitalize">{{ $coleccionable->name }}</strong>
                                             </div>
                                             @break
                                             @endif
@@ -120,9 +118,8 @@
                                             @if($setcoleccionable->coleccionable == $coleccionable->id)
                                             <div class="flex flex-col justify-self-start">
                                                 <div>
-                                                    <button class="tooltip-right" wire:click="showCollectionModal({{ $coleccionable->id }})">
-                                                    <img class="h-10 w-10 shadow-md rounded-full object-cover" src="http://127.0.0.1:8000/storage/{{ $coleccionable->coleccionable_photo_path }}" />
-                                                    <span class="tooltiptext-right">Mas Info</span>        
+                                                    <button wire:click="showCollectionModal({{ $coleccionable->id }})">
+                                                    <img class="h-10 w-10 shadow-md rounded-full object-cover" src="http://127.0.0.1:8000/storage/{{ $coleccionable->coleccionable_photo_path }}" />       
                                                     </button>
                                                 </div>
                                                 <strong style="text-transform:capitalize">{{ $coleccionable->name }}</strong>
@@ -162,9 +159,10 @@
 
                         <x-slot name="description">
                             {{ __('Here you can see the characteristics of this collectable') }}
-                            <div class="flex flex-col p-6">
+                            <div class="flex flex-col p-6 items-center gap-4">
                                 @isset($col)
-                                <img class="mx-auto shadow-md rounded-full object-cover" src="http://127.0.0.1:8000/storage/{{ $col->coleccionable_photo_path}}" alt="{{ $col->name }}" />
+                                <img class="mx-auto shadow-md object-cover" src="http://127.0.0.1:8000/storage/{{ $col->coleccionable_photo_path}}" alt="{{ $col->name }}" />
+                                <p>{{ $col->name }}</p>
                                 @endisset
                             </div>
                         </x-slot>

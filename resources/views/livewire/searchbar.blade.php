@@ -15,7 +15,7 @@
 
         <x-slot name="form">
         <div class="flex col-span-6 items-center">
-        <x-jet-input type="text" list="names" class="mt-1 block w-full" wire:model="search" autocomplete="name" placeholder="search"/>
+        <x-jet-input type="text" list="names" class="mt-1 block w-full" wire:model="search" autocomplete="name" placeholder="Search"/>
         <datalist id="names" class="overflow-y-auto h-10">
             @foreach($coleccionables as $coleccionable)
                 @if($search != '')

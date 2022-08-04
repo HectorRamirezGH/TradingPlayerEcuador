@@ -52,8 +52,10 @@ class Tabla extends Component
 
     public function startChat($user_id)
     {
-        DB::table('friends')->updateOrInsert(['user' => Auth::user()->id, 'friend' => $user_id]);
-        DB::table('friends')->updateOrInsert(['user' => $user_id, 'friend' => Auth::user()->id]);
+        if(Auth::check()){
+            DB::table('friends')->updateOrInsert(['user' => Auth::user()->id, 'friend' => $user_id]);
+            DB::table('friends')->updateOrInsert(['user' => $user_id, 'friend' => Auth::user()->id]);
+        }
         
         return redirect()->route('chatroom');
     }

@@ -9,8 +9,9 @@
                     <x-slot name="description">
                         @foreach($coleccionables as $coleccionable)
                             @if($coleccionable->id == $id_col)
-                            <div class="flex flex-col justify-self-center p-6">
+                            <div class="flex flex-col items-center gap-4 p-6">
                                 <img class="mx-auto shadow-md object-cover" src="http://127.0.0.1:8000/storage/{{ $coleccionable->coleccionable_photo_path}}" alt="{{ $coleccionable->name }}" />
+                                <p>{{ $coleccionable->name }}</p>
                             </div>
                             @endif
                         @endforeach
@@ -44,11 +45,10 @@
 
         <x-jet-section-border />
 
-        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">           
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="flex flex-col">
-                <div class="flex flex-col">
-                    <div class="bg-white px-4 py-3 sm:px-6">
-                        <div class="flex flex-row gap-4 grid grid-cols-2 place-items-stretch">
+                <div class="bg-white px-4 py-3 sm:px-6">
+                    <div class="flex flex-row gap-4 grid grid-cols-2 place-items-stretch">
                         <ul class="max-w-xl bg-gradient-to-bl from-white via-red-200 to-white mt-4 mb-2 py-3 rounded-lg border-gray-200 shadow-md overflow-y-auto sm:px-6 h-96">            
                         <div class="flex flex-row grid grid-cols-2 rounded-lg bg-gradient-to-l from-white to-red-400">
                             <p class="ml-2">{{ __('Want to buy') }}</p>
@@ -163,9 +163,8 @@
                         @empty
                         @endforelse
                         </ul>
-                        </div>
                     </div>
-                </div>  
+                </div>
             </div>
         </div>
     </div>

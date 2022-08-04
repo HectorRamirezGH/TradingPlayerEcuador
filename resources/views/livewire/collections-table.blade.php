@@ -59,7 +59,7 @@
 
         <div class="mt-5">
             <x-jet-button class="bg-emerald-500 hover:bg-emerald-700" wire:click="createCollectionModal" wire:loading.attr="disabled">
-                {{ __('Create collection') }}
+                {{ __('Create Collection') }}
             </x-jet-button>
         </div>
 
@@ -100,7 +100,7 @@
                     </x-jet-action-message>
 
                     <x-jet-button class="bg-emerald-500 hover:bg-emerald-700">
-                    {{ __('Create collection') }}
+                    {{ __('Create Collection') }}
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>
@@ -148,7 +148,7 @@
                     </x-jet-action-message>
 
                     <x-jet-button class="bg-emerald-500 hover:bg-emerald-700">
-                        {{ __('Update collection') }}
+                        {{ __('Update Collection') }}
                     </x-jet-button>
                 </x-slot>
             </x-jet-form-section>

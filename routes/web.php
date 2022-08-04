@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/library', function () {
+    return view('library');
+})->name('library');
+
 Route::get('/collectable/{id_col}', LivewireCollectable::class)
 ->name('collectable');
 
