@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="bg-white px-4 py-3 sm:px-6">
-                    <p>{{ __('Here you can look on the sets of your current collections') }}</p>
+                    <p>{{ __('Here you can look on the sets of your current collections!') }}</p>
                 </div>
             </div>
 
@@ -227,7 +227,7 @@
 
             </x-slot>
             <x-slot name="actions">
-                <x-jet-action-message class="mr-3" on="saved">
+                <x-jet-action-message class="mr-3 text-white" on="saved">
                     {{ __('Set successfully created!') }}
                 </x-jet-action-message>
 
@@ -317,7 +317,7 @@
 
             </x-slot>
             <x-slot name="actions">
-                <x-jet-action-message class="mr-3" on="updated">
+                <x-jet-action-message class="mr-3 text-white" on="updated">
                     {{ __('Set successfully updated!') }}
                 </x-jet-action-message>
 

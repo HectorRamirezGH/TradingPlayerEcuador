@@ -24,7 +24,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="text-sm text-gray-600">
+                        <div class="text-sm text-gray-600 overflow-y-auto h-72">
                             <div class="flex flex-row grid place-items-stretch shadow sm:rounded-lg">
                                 <table class="min-w-full">
                                 <thead class="border-b bg-gray-800">
@@ -37,7 +37,7 @@
                                     </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-gradient-to-bl from-white via-indigo-200 to-white"> 
+                                <tbody class="bg-gradient-to-bl from-white via-indigo-200 to-white "> 
                                     @foreach ($userCollections as $collection)
                                     <tr>
                                     <td align="center" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

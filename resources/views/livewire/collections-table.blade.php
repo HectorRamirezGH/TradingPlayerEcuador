@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <div class="text-sm text-gray-600">
+        <div class="text-sm text-gray-600 overflow-y-auto h-72">
             <div class="overflow-hidden shadow">
                 <table class="min-w-full">
                 <thead class="border-b bg-gray-800">
@@ -95,8 +95,8 @@
 
                 </x-slot>
                 <x-slot name="actions">
-                    <x-jet-action-message class="mr-3" on="saved">
-                        {{ __('Collection successfully created!') }}
+                    <x-jet-action-message class="mr-3 text-white" on="saved">
+                        {{ __('Collection Successfully Created!') }}
                     </x-jet-action-message>
 
                     <x-jet-button class="bg-emerald-500 hover:bg-emerald-700">
@@ -143,8 +143,8 @@
 
                 </x-slot>
                 <x-slot name="actions">
-                    <x-jet-action-message class="mr-3" on="updated">
-                        {{ __('Collection successfully updated!') }}
+                    <x-jet-action-message class="mr-3 text-white" on="updated">
+                        {{ __('Collection Successfully Updated!') }}
                     </x-jet-action-message>
 
                     <x-jet-button class="bg-emerald-500 hover:bg-emerald-700">

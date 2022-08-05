@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Colecciones;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\SetColeccionable;
 
 class CollectionsTable extends Component
 {
@@ -76,7 +78,9 @@ class CollectionsTable extends Component
     
     public function deleteCollection()
     {
-        $this->edit_coleccion->delete();
+        SetColeccionable::where('coleccion', $this->edit_coleccion->id)->delete();
+
+        $this->edit_coleccion->delete();  
 
         $this->deleteCollectionModal = false;     
         

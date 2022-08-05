@@ -6,7 +6,6 @@ use App\Models\Caracteristica;
 use App\Models\CaracteristicasColeccionable;
 use App\Models\Coleccionable;
 use App\Models\Colecciones;
-use App\Models\SetColeccionable;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -29,7 +28,7 @@ class Tabla extends Component
 
         $caracteristicascoleccionable = CaracteristicasColeccionable::all();
 
-        $setcoleccionables = SetColeccionable::all();
+        $setcoleccionables = DB::table('set_coleccionables')->latest()->where('deleted_at', null)->limit(150)->get();
 
         $users = User::all();
 

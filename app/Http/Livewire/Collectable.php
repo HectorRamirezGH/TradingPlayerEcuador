@@ -8,6 +8,8 @@ use App\Models\Coleccionable;
 use App\Models\Colecciones;
 use App\Models\SetColeccionable;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Collectable extends Component
@@ -27,7 +29,7 @@ class Collectable extends Component
 
         $users = User::all();   
 
-        $setcoleccionables = SetColeccionable::all();
+        $setcoleccionables = DB::table('set_coleccionables')->latest()->where('deleted_at', null)->get();
 
         return view('livewire.collectable', compact('colecciones','coleccionables', 'caracteristicascoleccionable', 'carac_name', 'users', 'setcoleccionables'));
     }
@@ -46,6 +48,11 @@ class Collectable extends Component
 
     public function startChat($user_id)
     {
+        if(Auth::check()){
+            DB::table('friends')->updateOrInsert(['user' => Auth::user()->id, 'friend' => $user_id]);
+            DB::table('friends')->updateOrInsert(['user' => $user_id, 'friend' => Auth::user()->id]);
+        }
+
         return redirect()->route('chatroom');
     }
 }
